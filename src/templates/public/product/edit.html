@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+<!---->
+
+{% block content %}
+
+<form action="/products/{{ product.0 }}/update" method="POST">
+  <input type="text" name="name" placeholder="Nome" value="{{ product.1}}" />
+  <input type="text" name="value" placeholder="Valor" value="{{ product.2}}" />
+  <input
+    type="number"
+    name="stock"
+    placeholder="Estoque"
+    value="{{ product.3}}"
+  />
+  <input
+    type="text"
+    name="category_id"
+    placeholder="Id da Categoria"
+    value="{{ product.4}}"
+  />
+  <button type="submit">Editar</button>
+</form>
+
+{% endblock %}

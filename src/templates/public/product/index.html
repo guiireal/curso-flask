@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+<!---->
+
+{% block content %}
+
+<form action="/products" method="POST">
+  <input type="text" name="name" placeholder="Nome" />
+  <input type="text" name="value" placeholder="Valor" />
+  <input type="number" name="stock" placeholder="Estoque" />
+  <input type="text" name="category_id" placeholder="Id da Categoria" />
+  <button type="submit">Cadastrar</button>
+</form>
+
+{% for product in products %}
+
+<!---->
+{{ product.0 }}<br />
+{{ product.1 }}<!---->
+
+<form action="/products/{{ product.0 }}/destroy" method="POST">
+  <button>Excluir</button>
+</form>
+<a href="/products/{{ product.0 }}/edit">Editar</a>
+
+{% endfor %}
+<!---->
+
+{% endblock %}
